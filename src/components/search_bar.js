@@ -40,6 +40,7 @@ class SearchBar extends Component {
                 
             </div>
         );
+        // a class-based component can be contained in a functional component, it's totally fine.
         // the 'value' property in tag will make the element into a controlled component
         // a controlled element has its 'value' set by 'state', so its value only ever changes when the state changes
         // we update the 'state' with that 'event', and re-render them with 'value' to the layout
