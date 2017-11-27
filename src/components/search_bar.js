@@ -9,8 +9,11 @@ class SearchBar extends Component {
     constructor(props) {
         super(props);
         /* can call method defined on parent class by calling 'super' */
-        this.state = { term: '' };
-        /* the property named "term" on state*/
+        // this.state = { term: '' };
+        /* the property named "term" on state with empty value */
+
+        this.state = { term: 'Starting Value' };
+        /* we can set an initial value for the state */
     }
 
 
@@ -32,10 +35,14 @@ class SearchBar extends Component {
         // while this.setState will inform the change of the state
         return (
             <div>
-                <input onChange={event => this.setState({ term: event.target.value })} />
-                Value of the input: {this.state.term}
+                <input value={this.state.term}
+                    onChange={event => this.setState({ term: event.target.value })} />
+                
             </div>
         );
+        // the 'value' property in tag will make the element into a controlled component
+        // a controlled element has its 'value' set by 'state', so its value only ever changes when the state changes
+        // we update the 'state' with that 'event', and re-render them with 'value' to the layout
     }
 
     // onInputChange(event) {
