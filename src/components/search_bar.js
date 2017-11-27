@@ -8,10 +8,22 @@ import React, { Component } from "react";
 class SearchBar extends Component {
 
     render() {
+        // return (
+        //     <input onChange={this.onInputChange} />
+        // );
+        // same result as the above codes 1
+        // return (
+        //     <input onChange={(event) => console.log(event.target.value)} />
+        // );
+        // same result as the above codes 2
         return (
-            <input />
+            <input onChange={event => console.log(event.target.value)} />
         );
     }
+
+    // onInputChange(event) {
+    //     console.log(event.target.value);
+    // }
 }
 
 // const SearchBar = () => {
