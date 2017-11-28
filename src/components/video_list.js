@@ -8,6 +8,7 @@ const VideoList = (props) => {
         return <VideoListItem key={video.etag} video={video} />
     });
     /* Create the layout result first, and then assign it to a const to make it functional */
+    // Provide key props for map iterator to solve console error
 
     return (
         <ul className="col-md-4 list-group">
