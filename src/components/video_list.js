@@ -5,7 +5,7 @@ const VideoList = (props) => {
     /* The 'props' in the functional component is an argument */
     // const videos = props.videos;
     const videoItems = props.videos.map((video) => {
-        return <VideoListItem video={video} />
+        return <VideoListItem key={video.etag} video={video} />
     });
     /* Create the layout result first, and then assign it to a const to make it functional */
 
