@@ -5,7 +5,7 @@ import React from "react";
 
 //     return <li>Video</li>
 // };
-// The props argument and the first statement together is equal to below ES6 syntax
+// The props argument and the first const statement together is equal to below ES6 syntax
 // 
 /* The props argument with JSON object format, 
 * tells that there's a 'video' property from props which is got from the argument
