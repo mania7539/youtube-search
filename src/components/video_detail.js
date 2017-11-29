@@ -1,6 +1,11 @@
 import React from "react";
 
 const VideoDetail = ({video}) => {
+    if (!video) {
+        return <div>Loading...</div>;
+        /* handle value undefined situation when the object haven't loaded yet. */
+    }
+
     const videoId = video.id.videoId;
     const url = `https://www.youtube.com/embed/${videoId}`;
     // the above code is the same as below which is called template string:

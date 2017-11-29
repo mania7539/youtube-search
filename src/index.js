@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import YTSearch from "youtube-api-search";
 import SearchBar from "./components/search_bar";
 import VideoList from "./components/video_list";
-import YTSearch from "youtube-api-search";
+import VideoDetail from "./components/video_detail";
 
 const API_KEY = "AIzaSyDfhiV7sDt5xpP9sjxmJN6ZWNyEE7oW4hI";
 
@@ -32,10 +33,12 @@ class App extends Component {
         return (
             <div>
                 <SearchBar />
+                <VideoDetail video={this.state.videos[0]} />
                 <VideoList videos={this.state.videos} />
             </div>
         );
         /* passing 'state' is just like passing 'props' */
+        /* can't pass <VideoDetail video={this.state.videos[0]} /> directly, since index 0 is undefined when it first loaded. */
     }
 }
 
