@@ -1,7 +1,7 @@
 import _ from "lodash";
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import YTSearch from "youtube-api-search";
+import YoutubeSearch from "youtube-api-search";
 import SearchBar from "./components/search_bar";
 import VideoList from "./components/video_list";
 import VideoDetail from "./components/video_detail";
@@ -25,7 +25,7 @@ class App extends Component {
     }
 
     videoSearch(term) {
-        YTSearch({ key: API_KEY, term: term }, (videos) => {
+        YoutubeSearch({ key: API_KEY, term: term }, (videos) => {
             console.log(videos);
             this.setState({
                 videos: videos,
