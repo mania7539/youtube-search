@@ -1,6 +1,6 @@
 import React from "react";
 
-const VideoDetail = ({video}) => {
+const VideoDetail = ({video, onVideoSelect}) => {
     if (!video) {
         return <div>Loading...</div>;
         /* handle value undefined situation when the object haven't loaded yet. */

@@ -15,12 +15,19 @@ class App extends Component {
 
         this.state = {
             videos: [],
+            selectedVideo: null
         }
         /* A list of videos, so use an array is very reasonable */
 
         YTSearch({ key: API_KEY, term: "surfboards" }, (videos) => {
             console.log(videos);
-            this.setState({ videos });
+            this.setState({ 
+                videos: videos, 
+                selectedVideo: videos[0]
+            });
+            // add the concept of selected video.
+            //
+            // this.setState({ videos });
             // in ES6, the above code is equal to 
             // this.setState({ videos: videos });
         });
@@ -33,12 +40,15 @@ class App extends Component {
         return (
             <div>
                 <SearchBar />
-                <VideoDetail video={this.state.videos[0]} />
-                <VideoList videos={this.state.videos} />
+                <VideoDetail video={this.state.selectedVideo} />
+                <VideoList 
+                    onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+                    videos={this.state.videos} />
             </div>
         );
-        /* passing 'state' is just like passing 'props' */
+        /* onVideoSelected is a custom function to props, which has an argument selectedVideo */
         /* can't pass <VideoDetail video={this.state.videos[0]} /> directly, since index 0 is undefined when it first loaded. */
+        /* passing 'state' is just like passing 'props' */
     }
 }
 

@@ -10,11 +10,11 @@ import React from "react";
 /* The props argument with JSON object format, 
 * tells that there's a 'video' property from props which is got from the argument
 */
-const VideoListItem = ({video}) => {
+const VideoListItem = ({ video, onVideoSelect }) => {
     const imageUrl = video.snippet.thumbnails.default.url;
 
     return (
-        <li className="list-group-item">
+        <li onClick={() => onVideoSelect(video)} className="list-group-item">
             <div className="video-list media">
                 <div className="media-left">
                     <img className="media-object" src={imageUrl} />
