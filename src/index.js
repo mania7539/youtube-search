@@ -19,10 +19,15 @@ class App extends Component {
         }
         /* A list of videos, so use an array is very reasonable */
 
-        YTSearch({ key: API_KEY, term: "surfboards" }, (videos) => {
+        this.videoSearch("surfboards");
+
+    }
+
+    videoSearch(term) {
+        YTSearch({ key: API_KEY, term: term }, (videos) => {
             console.log(videos);
-            this.setState({ 
-                videos: videos, 
+            this.setState({
+                videos: videos,
                 selectedVideo: videos[0]
             });
             // add the concept of selected video.
@@ -39,14 +44,14 @@ class App extends Component {
     render() {
         return (
             <div>
-                <SearchBar />
+                <SearchBar onSearchTermChange={term => this.videoSearch(term)} />
                 <VideoDetail video={this.state.selectedVideo} />
-                <VideoList 
-                    onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+                <VideoList
+                    onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
                     videos={this.state.videos} />
             </div>
         );
-        /* onVideoSelected is a custom function to props, which has an argument selectedVideo */
+        /* onVideoSelected is a custom function to props (pass a function to next level component), which has an argument selectedVideo */
         /* can't pass <VideoDetail video={this.state.videos[0]} /> directly, since index 0 is undefined when it first loaded. */
         /* passing 'state' is just like passing 'props' */
     }
